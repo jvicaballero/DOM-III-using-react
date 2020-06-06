@@ -1,26 +1,37 @@
-import React from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+class App extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      color: '',
+    }
+  }
+
+  colorChange = (event) => {
+   this.setState({color: event.target.value})
+  }
+
+  render(){
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <select 
+      value={this.state.color}
+      onChange={this.colorChange}
+      >
+        <option>--Select a Color--</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+        <option value="yellow">Yellow</option>
+
+      </select>
     </div>
   );
+}
 }
 
 export default App;
