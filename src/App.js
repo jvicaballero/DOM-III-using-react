@@ -67,7 +67,7 @@ class App extends Component {
 
       </select>
 
-      {<Table currentColor={this.state.color}/>}
+      <Table currentColor={this.state.color}/>
 
     </div>
   );
