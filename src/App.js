@@ -9,8 +9,30 @@ class App extends Component {
     super(props);
     this.state = {
       color: '',
+      rows: 1,
+      columns: 1
     }
+
+        //fixes setState DNE error
+        this.addColumn = this.addColumn.bind(this);
+        this.addRow = this.addRow.bind(this);
   }
+
+  addColumn(){//Increment size of columns value
+
+    this.setState({
+        columns: this.state.columns + 1
+        
+    })
+    console.log(this.state.columns);
+
+ }
+
+ addRow(){ //Increment size of rows value
+ 
+     this.setState({rows: this.state.rows + 1})
+     console.log(this.state.rows);
+ }
 
   colorChange = (event) => {
    this.setState({color: event.target.value})
@@ -23,38 +45,7 @@ class App extends Component {
   render(){
   return (
     <div className="App">
-{/*
-      <table>
-      <thead>
-    <tr>
-      <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Username</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td colSpan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-      </table>
 
-*/}
      <select 
       value={this.state.color}
       onChange={this.colorChange}
@@ -67,7 +58,10 @@ class App extends Component {
 
       </select>
 
-      {<Table currentColor={this.state.color}/>}
+      <button onClick={this.addRow}>Add Row</button>
+      <button onClick={this.addColumn}>Add Column</button>
+
+      <Table currentColor={this.state.color} rows={this.state.rows} columns={this.state.columns}/>
 
     </div>
   );

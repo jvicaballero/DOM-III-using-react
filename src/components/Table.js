@@ -8,28 +8,8 @@ class Table extends Component {
     {
         super(props);
         this.state = {
-             rows: 1, columns: 1, color: this.props.currentColor,
-        }
-
-        //fixes setState DNE error
-        this.addColumn = this.addColumn.bind(this);
-        this.addRow = this.addRow.bind(this);
-    }
-
-    addColumn(){//Increment size of columns value
-
-       this.setState({
-           columns: this.state.columns + 1
-           
-       })
-       console.log(this.state.columns);
-
-    }
-
-    addRow(){ //Increment size of rows value
-    
-        this.setState({rows: this.state.rows + 1})
-        console.log(this.state.rows);
+             rows: this.props.rows, columns: this.props.columns, color: this.props.currentColor,
+        };
     }
 
     render(){
@@ -48,9 +28,6 @@ class Table extends Component {
       
 
         <div>
-        <button onClick={this.addRow}>Add Row</button>
-        <button onClick={this.addColumn}>Add Column</button>
-
         <table>
             <tbody>
                 {displayTable}

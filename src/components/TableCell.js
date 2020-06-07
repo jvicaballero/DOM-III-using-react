@@ -1,11 +1,11 @@
 import React , { Component } from "react"
 
 class TableCell extends Component{
-    //returns by mapping over columns from Table
+ 
     render()
     {
         let display = (
-            <td></td>
+            <td value={this.props.color}></td>
         )
         return(
             <>
@@ -14,4 +14,5 @@ class TableCell extends Component{
         )
     }
 }
+
 export default TableCell
